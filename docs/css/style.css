@@ -1,95 +1,218 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background: #E9ECF4;
     color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.contenedor{
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Edu+QLD+Beginner:wght@500&display=swap');
+
+.contenedor {
     width: 90%;
     max-width: 1000px;
     margin: 20px auto;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Edu QLD Beginner', cursive;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: 5, auto;
 
     grid-template-areas: "header header header"
-                         "contenido contenido sidebar"
-                         "widget-1 widget-2 sidebar"
-                         "footer footer footer";
-
+        "sidebar contenido contenido"
+        "footer footer footer";
 }
 
-.contenedor > div,
-.contenedor > .header,
-.contenedor > .contenido,
-.contenedor > .sidebar,
-.contenedor > .footer {
+.contenedor>.header,
+.contenedor>.sidebar,
+.contenedor>.contenido,
+.contenedor>.footer {
     background: #fff;
     padding: 20px;
     border-radius: 4px;
 }
 
-.contenedor .header{
-    background: #12203E;
+.contenedor .header {
+    background-color: #12203e;
     color: #fff;
-
-    grid-area: header;
-}
-
-.contenedor .contenido{
-    grid-area: contenido;
-}
-
-.contenedor .sidebar{
-    grid-column: 3/4;
-    background: #FAA43D;
     display: flex;
-    min-height: 100px;
+    align-items: center;
+    grid-area: header;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0px 7%;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    padding: 20px;
+    background-color: rgba(0, 0, 255, 0.199);
+    width: 50px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    height: 10px;
+}
 
+.logo span {
+    color: aqua;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    position: relative;
+    float: left;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    display: block;
+}
+
+.menu ul li a:hover {
+    background-color: rgba(0, 132, 255, 0.164);
+
+}
+
+.menu ul li i {
+    padding: 10px;
+    color: aqua;
+}
+
+.contenedor .sidebar {
+    background-color: #faa43d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
     grid-area: sidebar;
 }
 
-.contenedor .Widget-1,
-.contenedor .Widget-2{
-    background: #55a8fd;
-    color: #fff;
-    height: 100px;
-    text-align: center;
+.sidebar .lista ul{
+    padding: 16px;
+}
+
+.sidebar .lista ul li{
+    display: inline;
+}
+.sidebar .lista ul li::after, li:hover {
+    color: red;
+    content: " | ";
+    display: inline-block;
+  }
+
+.contenedor .contenido {
+    grid-area: contenido;    
+}
+
+.contenido .card {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
 }
 
-.contenedor .Widget-1{
-    grid-area: widget-1;
+.contenido .img {
+    border-radius: 10px;
+    width: 120px;
+    height: 150px;   
 }
 
-.contenedor .Widget-2{
-    grid-area: widget-2;
-}
-
-
-.contenedor .footer{
-    background: #12203e;
-    color: #fff;
+.contenedor .footer {
+    background-color: #12203e;
+    color: #fff;    
     grid-area: footer;
 }
 
-@media screen and (max-width: 768px){
-    .contenedor{
+.footer .copy {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer .redes {
+    padding: 20px;
+    background-color: rgba(0, 0, 255, 0.199);
+    width: 100px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+.footer .redes a {
+    text-decoration: none;    
+    margin: 10px;
+    font-size: 28px;
+}
+
+.footer .redes .fa-facebook{
+    color:  #1877f2;
+}
+
+.footer .redes .fa-whatsapp{
+    color:  #25d366;
+}
+
+.footer .redes .fa-twitter{
+    color:  #00acee;
+}
+
+.header .menu {
+    display: block;
+    align-items: center;
+    justify-content: right;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .contenedor {
         grid-template-areas: "header header header"
-                         "contenido contenido contenido"
-                         "sidebar sidebar sidebar"
-                         "widget-1 widget-1  widget-1"
-                         "widget-2 widget-2  widget-2"
-                         "footer footer footer";
+            "sidebar sidebar sidebar"
+            "contenido contenido contenido"
+            "footer footer footer";
+    }   
+
+    .contenedor .card{
+        display: block;
+        text-align: center;
+    }
+
+    .contenedor .card p {
+        text-align: justify;
+    }   
+
+    .footer .copy{
+        display: block;
+        text-align: center;
+    }
+
+    .footer .redes{
+        width: auto;
+    }    
+
+    .menu li{
+        display: block;
+        width: auto;
     }
 }
